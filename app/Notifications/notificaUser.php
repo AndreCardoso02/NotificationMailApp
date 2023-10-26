@@ -28,7 +28,7 @@ class notificaUser extends Notification implements ShouldQueue
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -51,8 +51,9 @@ class notificaUser extends Notification implements ShouldQueue
      */
     public function toArray(object $notifiable): array
     {
-        return [
-            //
+        return [ // Usado para broadcast e para base de dados
+            'mensagem' => 'Obrigado por se cadastrar no sistema',
+            $this->usuario
         ];
     }
 }
