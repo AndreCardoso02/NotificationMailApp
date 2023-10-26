@@ -23,7 +23,8 @@
                             </div>
                         @endforeach
                     @endif
-                    <button type="button" id="marcar-todos" class="btn btn-dark">Marcar todos como lido</button>
+                    <button type="button" id="marcar-todos" class="btn btn-secondary btn-dark">Marcar todos como
+                        lido</button>
                 </div>
             </div>
         </div>
