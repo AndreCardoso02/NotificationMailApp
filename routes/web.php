@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('notifica', [UserController::class, 'notificaUser'])->name('notifica');
+Route::get('marcar.lido', [UserController::class, 'marcarNotificacao'])->name('marcar.lido');
 
 Route::get('/', function () {
     return view('welcome');

@@ -9,6 +9,24 @@ use Illuminate\Support\Facades\Notification;
 
 class UserController extends Controller
 {
+    public function marcarNotificacao(Request $request)
+    {
+        Auth::user()
+            ->unreadNotifications
+            ->when($request->input('id'), function ($query) use ($request) { // se eu tiver input id
+                return $query->where('id', $request->input('id'));
+            })
+            ->markAsRead();
+
+        return response()->noContent();
+    }
+
+    public function notificaUser() {
+        $user = User::find(2);
+        $user->notify(new notificaUser($user));
+        echo 'Ok';
+    }
+
     public function salvaUser(Request $request) {
         $user = new User();
         $user->email = $request->email;
