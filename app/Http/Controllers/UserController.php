@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Notifications\notificaUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 
 class UserController extends Controller
@@ -22,7 +23,7 @@ class UserController extends Controller
     }
 
     public function notificaUser() {
-        $user = User::find(2);
+        $user = User::find(12);
         $user->notify(new notificaUser($user));
         echo 'Ok';
     }

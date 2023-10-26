@@ -12,7 +12,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Você está logado
                     <br><br>
-                    @if(isset(Auth::user()->unreadNotifications))
+                    @if (isset(Auth::user()->unreadNotifications))
                         @foreach (Auth::user()->unreadNotifications as $notification)
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 <strong>Olá {{ $notification->data[0]['name'] }}</strong>
@@ -46,6 +46,13 @@
                     let request = marcarLido($(this).data('id'));
                     request.done(() => {
                         $(this).parents('div.alert').remove();
+                    });
+                });
+
+                $('#marcar-todos').click(function() {
+                    let request = marcarLido();
+                    request.done(() => {
+                        $('div.alert').remove();
                     });
                 });
             });
